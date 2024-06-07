@@ -94,10 +94,10 @@ using namespace std;
             }
         }
         if (total == 0){
-            cout << "\nNo Peliculas";
+            cout << "No Peliculas";
         }
         else {
-            cout << "\nTotal Peliculas = " + to_string(total);
+            cout << "Total Peliculas = " + to_string(total);
         }
     }
 
@@ -110,10 +110,10 @@ using namespace std;
             }
         }
         if (total == 0){
-            cout << "\nNo series";
+            cout << "No series";
         }
         else {
-            cout << "\nTotal Series = " + to_string(total);
+            cout << "Total Series = " + to_string(total);
         }
     }
 
@@ -132,9 +132,8 @@ using namespace std;
             }
         }
         total = totalPeli + totalSerie;
-        cout << "\nPeliculas = " + to_string(totalPeli);
-        cout << "\nSeries = " + to_string(totalSerie);
-        cout << "\nTotal = " + to_string(total);
+        cout << "Peliculas = " + to_string(totalPeli) + "\n";
+        cout << "Series = " + to_string(totalSerie) + "\n";
     }
       
         
