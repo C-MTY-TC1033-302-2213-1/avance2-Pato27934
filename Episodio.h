@@ -10,17 +10,17 @@ class Episodio {
     private:
         string titulo;
         int temporada;
-        double calificacion;
+        int calificacion;
     public:
         Episodio();
-        Episodio(string _titulo, int _temporada, double _calificacion);
+        Episodio(string _titulo, int _temporada, int _calificacion);
     //Setters y Getters
         void setTitulo(string _titulo);
         void setTemporada(int _duracion);
-        void setCalificacion(double _calificacion);
+        void setCalificacion(int _calificacion);
         string getTitulo();
         int getTemporada();
-        double getCalificacion();
+        int getCalificacion();
     //Funciones
         string str();
 };

@@ -29,6 +29,8 @@ class Video {
         double getCalificacion();
     //Funciones
         virtual string str();
+
+    //friend ostream& operator<< 
 };
 
 #endif

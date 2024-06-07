@@ -41,10 +41,11 @@
     }
 
     string Serie::str(){
-        cout << getID() + " " + getTitulo() + " " + to_string(getDuracion()) + " " + getGenero() + " " + to_string(getCalificacion()) + "\n";
+        cout << getID() + " " + getTitulo() + " " + to_string(calculaDuracion()) + " " + getGenero() + " " + to_string(getCalificacion()) + " " + to_string(cantidad)+ "\n";
         for (int index = 0; index < cantidad; index++) {
             cout << episodios[index].str();
         }
+        cout << "\n";
         return "";
     }
 
@@ -73,9 +74,8 @@
             return acum;
         }
         for (int index = 0; index < cantidad; index++) {  
-            acum += episodios[index].getTemporada();
+            acum = acum + episodios[index].getTemporada();
         }
-        acum = acum / cantidad;
         return acum;
     }
 

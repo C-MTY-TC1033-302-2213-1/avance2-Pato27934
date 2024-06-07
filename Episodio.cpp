@@ -9,7 +9,7 @@
         calificacion = 0;
     }
 
-    Episodio::Episodio(string _titulo, int _temporada, double _calificacion) {
+    Episodio::Episodio(string _titulo, int _temporada, int _calificacion) {
         titulo = _titulo;
         temporada = _temporada;
         calificacion = _calificacion;
@@ -23,7 +23,7 @@
         temporada = _temporada;
     }
 
-    void Episodio::setCalificacion(double _calificacion){
+    void Episodio::setCalificacion(int _calificacion){
         calificacion = _calificacion;
     }
 
@@ -36,7 +36,7 @@
         return temporada;
     }
 
-    double Episodio::getCalificacion(){
+    int Episodio::getCalificacion(){
         return calificacion;
     }
 

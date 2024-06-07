@@ -63,6 +63,6 @@
         return "";
     }
 
-    ostream& operator<< (ostream &out, const Video &video){
-        string acum = "";
-    }
+    //ostream& operator<< (ostream &out, const Video &video){
+    //    string acum = "";
+    //}
