@@ -15,9 +15,7 @@ const int MAX_VIDEOS = 100;
 class Polimorfismo
 {
     private:
-        Video* arrPTRVideos[5];
-        Serie* arrPTRSeries[50];
-        Pelicula* arrPTRPeliculas[50];
+        Video* arrPTRVideos[MAX_VIDEOS];
         int cantidad;
     public:
         Polimorfismo();

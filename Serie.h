@@ -8,10 +8,10 @@
 #include "Episodio.h"
 
 using namespace std;
-
+const int MAX_EPISODIOS = 6;
 class Serie : public Video {
     private:
-        Episodio episodios[5];
+        Episodio episodios[MAX_EPISODIOS];
         int cantidad;
     public:
         Serie();
@@ -23,7 +23,7 @@ class Serie : public Video {
     //Funciones
         string str();
         void agregaEpisodio(Episodio _episodio);
-        void calculaDuracion();
+        int calculaDuracion();
         double calculaPromedio();
 };
 

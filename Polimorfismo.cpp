@@ -47,40 +47,94 @@ using namespace std;
                 arrPTRSeries[index]->agregaEpisodio(*(new Episodio( row[2], stoi(row[3]), stoi(row[4]))));
             }
         }
+
+        for(int index = 0; index < cantidadSeries; index++){
+            promedio =  arrPTRSeries[index]->calculaPromedio();
+            arrPTRSeries[index]->setCalificacion(promedio);
+            arrPTRSeries[index]->calculaDuracion();
+            arrPTRVideos[cantidad++] = arrPTRSeries[index];
+        }
+
+        for(int index = 0; index < cantidadPeliculas; index++){
+            arrPTRVideos[cantidad++] = arrPTRPeliculas[index];
+        }
+
+        entrada.close();
     }
 
+    // SECCION DE FUNCIONES
     void Polimorfismo::reporteCalificacion(double _calificacion) {
-        for (int index = 0; index < MAX_VIDEOS; index++){
-            if (arrPTRPeliculas[index]->getCalificacion() <= _calificacion ) {
-                cout << arrPTRPeliculas[index]->str();
+        int total = 0;
+        for (int index = 0; index < cantidad; index++){
+            if (arrPTRVideos[index]->getCalificacion() == _calificacion ) {
+                total = total + 1;
+                cout << arrPTRVideos[index]->str();
             }
         }
+        cout << "Total = " + to_string(total);
     }
 
     void Polimorfismo::reporteGenero(string _genero) {
-        for (int index = 0; index < MAX_VIDEOS; index++){
-            if (arrPTRPeliculas[index]->getGenero() == _genero ) {
-                cout << arrPTRPeliculas[index]->str();
+        int total = 0;
+        for (int index = 0; index < cantidad; index++){
+            if (arrPTRVideos[index]->getGenero() == _genero) {
+                total = total + 1;
+                cout << arrPTRVideos[index]->str();
             }
         }
+        cout << "Total = " + to_string(total);
     }
 
     void Polimorfismo::reportePeliculas() {
-        for (int index = 0; index < MAX_VIDEOS; index++){    
-            cout << arrPTRPeliculas[index]->str();
+        int total = 0;
+        for (int index = 0; index < cantidad; index++){  
+            if(typeid(*arrPTRVideos[index]) == typeid(Pelicula)){
+                total = total + 1;
+                cout << arrPTRVideos[index]->str();
+            }
+        }
+        if (total == 0){
+            cout << "\nNo Peliculas";
+        }
+        else {
+            cout << "\nTotal Peliculas = " + to_string(total);
         }
     }
 
     void Polimorfismo::reporteSeries(){
-        for (int index = 0; index < MAX_VIDEOS; index++){    
-            cout << arrPTRSeries[index]->str();
+        int total = 0;
+        for (int index = 0; index < cantidad; index++){  
+            if(typeid(*arrPTRVideos[index]) == typeid(Serie)){
+                total = total + 1;
+                cout << arrPTRVideos[index]->str();
+            }
+        }
+        if (total == 0){
+            cout << "\nNo series";
+        }
+        else {
+            cout << "\nTotal Series = " + to_string(total);
         }
     }
 
     void Polimorfismo::reporteInventario(){
-        for (int index = 0; index < MAX_VIDEOS; index++){    
-            cout << arrPTRVideos[index]->str();
+        int total = 0;
+        int totalPeli = 0;
+        int totalSerie = 0;
+        for (int index = 0; index < cantidad; index++){ 
+            if(typeid(*arrPTRVideos[index]) == typeid(Serie)){
+                totalSerie += 1;
+                cout << arrPTRVideos[index]->str();
+            }
+            else if(typeid(*arrPTRVideos[index]) == typeid(Pelicula)){
+                totalPeli += 1;
+                cout << arrPTRVideos[index]->str();
+            }
         }
+        total = totalPeli + totalSerie;
+        cout << "\nPeliculas = " + to_string(totalPeli);
+        cout << "\nSeries = " + to_string(totalSerie);
+        cout << "\nTotal = " + to_string(total);
     }
       
         

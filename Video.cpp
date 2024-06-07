@@ -59,6 +59,10 @@
 
 //FUNCIONES
     string Video::str() {
-        cout << iD + " | " + titulo + " | Duracion: " + to_string(duracion) + ". " + genero + " " + to_string(calificacion) + "\n";
+        cout << iD + " " + titulo + " " + to_string(duracion) + " " + genero + " " + to_string(calificacion) + " ";
         return "";
+    }
+
+    ostream& operator<< (ostream &out, const Video &video){
+        string acum = "";
     }

@@ -41,18 +41,18 @@
     }
 
     string Serie::str(){
-        cout << Video::str() + "\n";
-        for (int index = 0; index < cantidad-1; index++) {
+        cout << getID() + " " + getTitulo() + " " + to_string(getDuracion()) + " " + getGenero() + " " + to_string(getCalificacion()) + "\n";
+        for (int index = 0; index < cantidad; index++) {
             cout << episodios[index].str();
         }
         return "";
     }
 
     void Serie::agregaEpisodio(Episodio episodio){
-        if (cantidad < 5){
+        if (cantidad < MAX_EPISODIOS){
             episodios[cantidad++] = episodio;
         }
-        setCalificacion(calculaPromedio());
+        Video::setCalificacion(calculaPromedio());
     }
 
     double Serie::calculaPromedio(){
@@ -62,6 +62,18 @@
         }
         for (int index = 0; index < cantidad; index++) {  
             acum += episodios[index].getCalificacion();
+        }
+        acum = acum / cantidad;
+        return acum;
+    }
+
+    int Serie::calculaDuracion(){
+        int acum = 0;
+        if (cantidad == 0){
+            return acum;
+        }
+        for (int index = 0; index < cantidad; index++) {  
+            acum += episodios[index].getTemporada();
         }
         acum = acum / cantidad;
         return acum;

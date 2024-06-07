@@ -42,6 +42,6 @@
 
 //FUNCIONES
     string Episodio::str() {
-        cout << titulo + " | Temporada: " + to_string(temporada) + ". " + to_string(calificacion) + "\n";
+        cout << titulo + " " + to_string(temporada) + " " + to_string(calificacion) + "\n";
         return "";
     }
